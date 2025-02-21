@@ -30,6 +30,7 @@ import {
   useColorMode,
   useColorModeValue,
   IconButton,
+  Link,
 } from '@chakra-ui/react'
 import { SunIcon, MoonIcon } from '@chakra-ui/icons'
 import TransactionHistory from './TransactionHistory'
@@ -303,7 +304,7 @@ function App() {
                     </Box>
                     <VStack spacing={2}>
                       <Heading size="xl" color={textColor}>TrachyCoin Dashboard</Heading>
-                      <Text color={subtitleColor} fontSize="lg">Your Digital Asset Management Platform By Nishanth Dhina</Text>
+                      <Text color={subtitleColor} fontSize="lg">Digital Asset Management Platform by Felix Ludwig</Text>
                     </VStack>
                     
                     {!isContractDeployed && (
@@ -428,6 +429,30 @@ function App() {
                 </Tabs>
               </Box>
             </VStack>
+            <Box as="footer" mt={8} textAlign="center" pb={4}>
+              <Text color={subtitleColor} fontSize="sm">
+                Website and Crypto developed by{' '}
+                <Link
+                  href="https://www.linkedin.com/in/nishanthdhina"
+                  color="blue.500"
+                  isExternal
+                  _hover={{ textDecoration: 'underline' }}
+                >
+                  Nishanth Dhina
+                </Link>
+              </Text>
+              <Link
+                href="https://nishanthdhina.dev"
+                color="blue.500"
+                fontSize="sm"
+                mt={2}
+                display="inline-block"
+                _hover={{ textDecoration: 'underline' }}
+                isExternal
+              >
+                Visit Portfolio
+              </Link>
+            </Box>
           </Container>
         </Box>
       )}
