@@ -27,9 +27,11 @@ import {
   Alert,
   AlertIcon,
   useDisclosure,
+  useColorMode,
   useColorModeValue,
   IconButton,
 } from '@chakra-ui/react'
+import { SunIcon, MoonIcon } from '@chakra-ui/icons'
 import TransactionHistory from './TransactionHistory'
 import LoadingScreen from './LoadingScreen'
 import PriceChart from './PriceChart'
@@ -47,6 +49,7 @@ const TRACHYCOIN_ABI = [
 function App() {
   // Chakra UI hooks and theme values
   const toast = useToast()
+  const { colorMode, toggleColorMode } = useColorMode()
   const bgGradient = useColorModeValue(
     'linear(to-r, blue.100, purple.100)',
     'linear(to-r, blue.900, purple.900)'
@@ -268,6 +271,17 @@ function App() {
       ) : (
         <Box bgGradient={bgGradient} minH="100vh" py={8}>
           <Container maxW="container.xl">
+            <Box position="fixed" top="4" right="4" zIndex="docked">
+              <IconButton
+                icon={colorMode === 'light' ? <MoonIcon /> : <SunIcon />}
+                onClick={toggleColorMode}
+                variant="ghost"
+                colorScheme="blue"
+                aria-label="Toggle color mode"
+                size="lg"
+                _hover={{ bg: buttonHoverBg, color: 'white' }}
+              />
+            </Box>
             <VStack spacing={8}>
               <Card w="full" variant="elevated" bg={cardBg} shadow="xl">
                 <CardBody>
@@ -282,7 +296,6 @@ function App() {
                       <Image
                         src="/assets/trachycoinlogo.png"
                         alt="TrachyCoin Logo"
-                        borderRadius="full"
                         boxSize="150px"
                         shadow="2xl"
                         fallback={<Spinner size="xl" />}

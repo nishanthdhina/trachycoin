@@ -44,9 +44,10 @@ function LoadingScreen() {
           transition="all 0.3s"
         >
           <Image
-            src="/assets/trachycoinlogo.svg"
+            src="/assets/trachycoinlogo.png"
             alt="TrachyCoin Logo"
-            boxSize="200px"
+            width="200px"
+            height="auto"
           />
         </Box>
         <Text
